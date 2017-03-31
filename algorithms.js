@@ -22,16 +22,19 @@
 
 // Input: string of letters (string)
 // Output: number of vowels (int)
-// Base case: string length = 1
+// Base case: string length = undefined
 // check the first letter,
 
 var countVowels = function(str){
   var numVowels = 0;
   var isVowel = function(char) {
-    return ['a', 'e', 'i', 'o', 'u'].includes(char) ? true : false
+    return ['a', 'e', 'i', 'o', 'u'].includes(char) ? 1 : 0
   };
-  for (var i = 0; i < str.length; i++) {
-    if (isVowel(str[i])) { numVowels++; }
+  if (str.length === 1) {
+    return numVowels += isVowel(str[0]);
+  } else {
+    numVowels += isVowel(str[0]);
+    return numVowels += countVowels(str.substring(1));
   }
   return numVowels;
 };

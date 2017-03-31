@@ -50,7 +50,15 @@ var countVowels = function(str){
 // sumDigits(12) → 3
 
 var recursiveSum = function(n){
-
+  debugger;
+  var sum = 0;
+  if (n < 10) { // single digit
+    return sum += n;
+  } else {
+    sum += n % 10
+    return sum += recursiveSum(Math.floor(n / 10)); // drop last digit
+  }
+  return sum;
 };
 
 ///////////////////////////////////////////////////////////////////////

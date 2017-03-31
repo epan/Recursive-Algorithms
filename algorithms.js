@@ -50,7 +50,6 @@ var countVowels = function(str){
 // sumDigits(12) → 3
 
 var recursiveSum = function(n){
-  debugger;
   var sum = 0;
   if (n < 10) { // single digit
     return sum += n;
@@ -71,7 +70,13 @@ var recursiveSum = function(n){
 // PowerOfTwo(9) -> false
 
 var isPowerOfTwo = function(n){
-
+  if (n === 2) {
+    return true;
+  } else if (n < 2) {
+    return false;
+  } else {
+    return isPowerOfTwo(n / 2.0);
+  }
 };
 
 ///////////////////////////////////////////////////////////////////////
@@ -87,7 +92,7 @@ var isPowerOfTwo = function(n){
 // (For example, if the initial investment is 1000 and the interest rate is 10 percent,
 // then after one year the investment will be worth 1100, after two years 1210, after three years 1331, etc.)
 
-var invest = function(amount){
+var invest = function(amount, rate, years){
 
 };
 

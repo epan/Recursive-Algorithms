@@ -93,14 +93,12 @@ var isPowerOfTwo = function(n){
 // then after one year the investment will be worth 1100, after two years 1210, after three years 1331, etc.)
 
 var invest = function(amount, rate, years){
-  // 1000 + 100 (1000 * .1)
-  // 1100 + 110 (1100 * .1)
-  // 1210 + 121 (1210 * .1)
-  var total = amount;
-  for (var i = years; i > 0; i--) {
-    total += (total * rate);
+  if (years <= 0) {
+    return amount;
+  } else {
+    amount += amount * rate;
+    return invest(amount, rate, years - 1);
   }
-  return total;
 };
 
 ///////////////////////////////////////////////////////////////////////

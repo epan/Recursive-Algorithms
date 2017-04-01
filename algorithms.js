@@ -136,8 +136,30 @@ var printRangeUpDown = function(min, max){
 // remember, binary tree's are different from binary search trees!
 // you'll need to create a binary tree constructor!
 
-var binaryTreeSum = function(tree){
+class Tree {
+  constructor (value) {
+    this.value = value;
+    this.left = undefined;
+    this.right = undefined;
+  }
+}
 
+var tree = new Tree(1);
+tree.left = new Tree(2);
+tree.right = new Tree(3);
+tree.left.left = new Tree(4)
+tree.left.left.left = new Tree(5)
+tree.left.left.right = new Tree(6)
+
+var binaryTreeSum = function(tree){
+  var sum = 0;
+  sum += tree.value;
+  for (var key in tree) {
+    if (key !== 'value' && tree[key]) {
+      sum += binaryTreeSum(tree[key]);
+    }
+  }
+  return sum;
 };
 
 ///////////////////////////////////////////////////////////////////////
